@@ -1,11 +1,10 @@
-import exception_and_strings.WrongFormat;
-import exception_and_strings.Сalculator;
+import collections.center.Center;
+import leetcode_35.Solution;
 
 public class Main {
     public static void main(String[] args) {
-
-        Сalculator calc = new Сalculator();
-        calc.setExpression();
-        calc.getResult();
+        int[] nums = {1, 5, 6, 4, 5};
+        Center center = new Center(nums);
+        center.outputCenterList();
     }
 }

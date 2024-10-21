@@ -50,7 +50,7 @@ public class Сalculator {
                     this.expression = temp;
                     System.out.printf("Your expression is: %s", expression);
                     break;
-                } else throw new WrongFormat("Wrong format of expression. Please, input new one.");
+                } else throw new WrongFormat("Wrong format of expression. Please, input new one. ");
             } catch (WrongFormat ex) {
                 ex.getMessage();
                 temp = in.nextLine();
