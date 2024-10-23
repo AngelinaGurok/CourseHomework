@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59d29155-6186-4ecf-9d46-7009413eef48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception_and_strings/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception_and_strings/Goods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception_and_strings/Сalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception_and_strings/Сalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collections/center/Center.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,5 +49,20 @@
       <updated>1723761574910</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/collections/array_lists/polynomial/Polynomial.java</url>
+          <line>15</line>
+          <properties class="collections.array_lists.polynomial.Polynomial" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
