@@ -1,7 +1,6 @@
 package collections.array_lists.polynomial;
 
-import java.util.ArrayList;
-import java.util.Date;
+import collections.array_lists.NumbersList;
 
 /**
  *
@@ -10,23 +9,19 @@ import java.util.Date;
  * Коэффициенты многочлена заданы списком p: (p0, p1, p2, p3, ..., pN).
  * Значение пустого многочлена равно 0 при любом x.
  */
-public class Polynomial {
+public class Polynomial extends NumbersList<Double> {
     double x;
-    ArrayList<Double> polynom;
-    public Polynomial(double x, double[] polynom){
+    public Polynomial(Double[] polynom, double x){
+        super(polynom);
         this.x = x;
-        this.polynom = new ArrayList<Double>();
-        for(int i = 0; i < polynom.length; i++){
-            this.polynom.add(polynom[i]);
-        }
     }
     private double countResult(){
-        if(this.polynom.isEmpty()){
+        if(numbersList.isEmpty()){
             return 0;
         }
         double result = 0;
-        for(int i = 0; i < this.polynom.size(); i++){
-            result += this.polynom.get(i) * Math.pow(this.x, i);
+        for(int i = 0; i < this.numbersList.size(); i++){
+            result += this.numbersList.get(i) * Math.pow(this.x, i);
         }
         return result;
     }

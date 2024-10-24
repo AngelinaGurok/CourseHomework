@@ -1,4 +1,6 @@
-package collections.center;
+package collections.array_lists.center;
+
+import collections.array_lists.NumbersList;
 
 import java.util.ArrayList;
 
@@ -8,38 +10,31 @@ import java.util.ArrayList;
  *
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
-public class Center {
-    ArrayList<Integer> list;
+public class Center extends NumbersList<Integer> {
 
-    public Center(){
-        list = new ArrayList<Integer>();
-    }
-    public Center(int[] nums){
-        list = new ArrayList<Integer>();
-        for(int i = 0; i < nums.length; i++){
-            list.add(nums[i]);
-        }
+    public Center(Integer[] nums){
+        super(nums);
     }
 
     private int calculateMean(){
         int sum = 0;
-        for(int i = 0; i < list.size(); i++){
-            sum += list.get(i);
+        for(int i = 0; i < numbersList.size(); i++){
+            sum += numbersList.get(i);
         }
-        return sum/list.size();
+        return sum/numbersList.size();
     }
 
     private void centerList(){
         int mean = this.calculateMean();
-        for(int i = 0; i < this.list.size(); i++){
-            this.list.set(i, this.list.get(i) - mean);
+        for(int i = 0; i < this.numbersList.size(); i++){
+            this.numbersList.set(i, this.numbersList.get(i) - mean);
         }
     }
 
-    public void outputCenterList(){
+    public void showResult(){
         centerList();
-        for(int i = 0; i < this.list.size(); i++){
-            System.out.println(this.list.get(i));
+        for(int i = 0; i < this.numbersList.size(); i++){
+            System.out.println(this.numbersList.get(i));
         }
     }
 }
