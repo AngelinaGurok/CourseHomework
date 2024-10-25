@@ -9,7 +9,7 @@ import collections.array_lists.NumbersList;
  * Коэффициенты многочлена заданы списком p: (p0, p1, p2, p3, ..., pN).
  * Значение пустого многочлена равно 0 при любом x.
  */
-public class Polynomial extends NumbersList<Double> {
+public class Polynomial extends NumbersList<Double> implements Printable, Accumulatable{
     double x;
     public Polynomial(Double[] polynom, double x){
         super(polynom);
@@ -30,4 +30,13 @@ public class Polynomial extends NumbersList<Double> {
         System.out.printf("p(x) = p0 + p1*x + p2*x^2 + p3*x^3 + ... + pN*x^N = %.2f", this.countResult());
     }
 
+    @Override
+    public void accumulate() {
+
+    }
+
+    @Override
+    public void print() {
+        
+    }
 }
