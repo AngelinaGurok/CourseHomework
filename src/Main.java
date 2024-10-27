@@ -7,5 +7,7 @@ public class Main {
         Double[] nums = {1.7, 5.0, 6.0, 4.0, 5.0};
         Polynomial polynomial = new Polynomial(nums, 2);
         polynomial.showResult(); //147,7
+        polynomial.accumulate();
+        polynomial.print();
     }
 }
