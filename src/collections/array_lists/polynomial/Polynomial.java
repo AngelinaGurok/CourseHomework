@@ -32,8 +32,7 @@ public class Polynomial extends NumbersList<Double> implements Printable, Accumu
         System.out.printf("p(x) = p0 + p1*x + p2*x^2 + p3*x^3 + ... + pN*x^N = %.2f\n", this.countResult());
     }
     /**
-     * Средняя (3 балла)
-     *
+
      * В заданном списке list каждый элемент, кроме первого, заменить
      * суммой данного элемента и всех предыдущих.
      * Например: 1, 2, 3, 4 -> 1, 3, 6, 10.
