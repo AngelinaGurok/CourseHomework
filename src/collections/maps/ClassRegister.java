@@ -14,8 +14,8 @@ import java.util.Scanner;
  *   buildGrades(mapOf("Марат" to 3, "Семён" to 5, "Михаил" to 5))
  *     -> mapOf(5 to listOf("Семён", "Михаил"), 3 to listOf("Марат"))
  */
-public class ClassRegister {
-   HashMap<String, Integer> register;
+public class ClassRegister implements Printable {
+   Map<String, Integer> register;
 
    ClassRegister(){
        register = new HashMap<String, Integer>();
@@ -37,4 +37,11 @@ public class ClassRegister {
        }
    }
 
+    @Override
+    public void print() {
+       System.out.println("Your register contains:");
+        for(Map.Entry<String, Integer> str: this.register.entrySet()){
+            System.out.printf("Name: %s Mark: %d", str.getKey(), str.getValue());
+        }
+    }
 }
