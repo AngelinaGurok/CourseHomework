@@ -1,6 +1,6 @@
 package collections.maps;
 
-import java.lang.foreign.StructLayout;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -17,31 +17,52 @@ import java.util.Scanner;
 public class ClassRegister implements Printable {
    Map<String, Integer> register;
 
-   ClassRegister(){
+   public ClassRegister(){
        register = new HashMap<String, Integer>();
    }
 
-   public void fulfillRegister(){
-       String inputCheck = "y";
-       Scanner in = new Scanner(System.in);
-       String name;
-       Integer mark;
-       while(inputCheck == "y" || inputCheck == "Y"){
-           System.out.print("\nInput name:");
-           name = in.nextLine();
-           System.out.print("\nInput mark: ");
-           mark = in.nextInt();
-           this.register.put(name, mark);
-           System.out.print("Do you want to add one more record? y/n");
-           inputCheck = in.nextLine();
+   public void fulfillRegister(int amount){
+       for(int i = 0; i < amount; i++){
+           this.register.put(inputName(), inputMark());
        }
+   }
+
+   String inputName(){
+       System.out.println("Input name: ");
+       Scanner in = new Scanner(System.in);
+       return in.nextLine();
+   }
+
+   Integer inputMark(){
+       System.out.println("Input mark: ");
+       Scanner in = new Scanner(System.in);
+       return in.nextInt();
    }
 
     @Override
     public void print() {
        System.out.println("Your register contains:");
         for(Map.Entry<String, Integer> str: this.register.entrySet()){
-            System.out.printf("Name: %s Mark: %d", str.getKey(), str.getValue());
+            System.out.printf("\nName: %s Mark: %d", str.getKey(), str.getValue());
         }
+    }
+
+    public Map<Integer, ArrayList<String>> reverseMap(){
+       Map<Integer, ArrayList<String>> reversedRegister = new HashMap<Integer, ArrayList<String>>();
+
+       for(Map.Entry<String, Integer> str: this.register.entrySet()){
+           Integer key = str.getValue();;
+           if(reversedRegister.containsKey(key)){
+               ArrayList<String> names = new ArrayList<String>(reversedRegister.get(key));
+               names.add(str.getKey());
+               reversedRegister.put(str.getValue(), names);
+           } else {
+               ArrayList<String> names = new ArrayList<String>();
+               names.add(str.getKey());
+               reversedRegister.put(key, names);
+           }
+       }
+
+       return  reversedRegister;
     }
 }
