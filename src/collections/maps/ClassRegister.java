@@ -1,5 +1,7 @@
 package collections.maps;
 
+import collections.array_lists.StringsArray;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +20,7 @@ public class ClassRegister implements Printable {
    Map<String, Integer> register;
 
    public ClassRegister(){
-       register = new HashMap<String, Integer>();
+       register = new HashMap<>();
    }
 
    public void fulfillRegister(int amount){
@@ -47,22 +49,34 @@ public class ClassRegister implements Printable {
         }
     }
 
+
     public Map<Integer, ArrayList<String>> reverseMap(){
-       Map<Integer, ArrayList<String>> reversedRegister = new HashMap<Integer, ArrayList<String>>();
+       Map<Integer, ArrayList<String>> reversedRegister = new HashMap<>();
 
        for(Map.Entry<String, Integer> str: this.register.entrySet()){
-           Integer key = str.getValue();;
-           if(reversedRegister.containsKey(key)){
-               ArrayList<String> names = new ArrayList<String>(reversedRegister.get(key));
-               names.add(str.getKey());
-               reversedRegister.put(str.getValue(), names);
-           } else {
-               ArrayList<String> names = new ArrayList<String>();
-               names.add(str.getKey());
-               reversedRegister.put(key, names);
-           }
-       }
 
+           Integer key = str.getValue();
+           ArrayList<String> names;
+
+           if(reversedRegister.containsKey(key)){
+               names = new ArrayList<>(reversedRegister.get(key));
+           } else {
+               names = new ArrayList<>();
+           }
+
+           names.add(str.getKey());
+           reversedRegister.put(key, names);
+       }
        return  reversedRegister;
     }
+
+    public void printReversedMap(){
+        Map<Integer, ArrayList<String>> reversedRegister = new HashMap<>(this.reverseMap());
+        for(Map.Entry<Integer, ArrayList<String>> str: reversedRegister.entrySet()){
+            System.out.printf("\n\nMark: %d Names: %s", str.getKey(), StringsArray.arrayToString(str.getValue()));
+        }
+    }
+
+
+
 }
