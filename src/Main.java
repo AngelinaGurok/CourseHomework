@@ -8,5 +8,6 @@ public class Main {
         ClassRegister register = new ClassRegister();
         register.fulfillRegister(5);
         register.print();
+        register.printReversedMap();
     }
 }
