@@ -50,30 +50,33 @@ public class ClassRegister implements Printable {
     }
 
 
-    public Map<Integer, ArrayList<String>> reverseMap(){
-       Map<Integer, ArrayList<String>> reversedRegister = new HashMap<>();
+    public Map<Integer, String> reverseMap(){
+       Map<Integer, String> reversedRegister = new HashMap<>();
 
        for(Map.Entry<String, Integer> str: this.register.entrySet()){
 
            Integer key = str.getValue();
-           ArrayList<String> names;
-
+           //ArrayList<String> names;
+           String names = "";
+           names = names.concat(str.getKey());
            if(reversedRegister.containsKey(key)){
-               names = new ArrayList<>(reversedRegister.get(key));
+
+               //names = new ArrayList<>(reversedRegister.get(key));
+               names = String.join(";", names, reversedRegister.get(key));
            } else {
-               names = new ArrayList<>();
+               //names = new ArrayList<>();
            }
 
-           names.add(str.getKey());
+           //names.add(str.getKey());
            reversedRegister.put(key, names);
        }
        return  reversedRegister;
     }
 
     public void printReversedMap(){
-        Map<Integer, ArrayList<String>> reversedRegister = new HashMap<>(this.reverseMap());
-        for(Map.Entry<Integer, ArrayList<String>> str: reversedRegister.entrySet()){
-            System.out.printf("\n\nMark: %d Names: %s", str.getKey(), StringsArray.arrayToString(str.getValue()));
+        Map<Integer, String> reversedRegister = new HashMap<>(this.reverseMap());
+        for(Map.Entry<Integer, String> str: reversedRegister.entrySet()){
+            System.out.printf("\n\nMark: %d Names: %s", str.getKey(), str.getValue());
         }
     }
 
