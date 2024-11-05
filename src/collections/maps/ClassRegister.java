@@ -16,6 +16,16 @@ import java.util.Scanner;
  *   buildGrades(mapOf("Марат" to 3, "Семён" to 5, "Михаил" to 5))
  *     -> mapOf(5 to listOf("Семён", "Михаил"), 3 to listOf("Марат"))
  */
+
+/**
+ *
+ * Определить, входит ли ассоциативный массив a в ассоциативный массив b;
+ * это выполняется, если все ключи из a содержатся в b с такими же значениями.
+ *
+ * Например:
+ *   containsIn(mapOf("a" to "z"), mapOf("a" to "z", "b" to "sweet")) -> true
+ *   containsIn(mapOf("a" to "z"), mapOf("a" to "zee", "b" to "sweet")) -> false
+ */
 public class ClassRegister implements Printable {
    Map<String, Integer> register;
 
@@ -49,6 +59,10 @@ public class ClassRegister implements Printable {
         }
     }
 
+    public boolean containsMap(ClassRegister otherMap){
+       return this.register.equals(otherMap);
+    }
+
 
     public Map<Integer, String> reverseMap(){
        Map<Integer, String> reversedRegister = new HashMap<>();
@@ -80,6 +94,20 @@ public class ClassRegister implements Printable {
         }
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
 
-
+        Map<String, Integer> reg = (Map<String, Integer>) obj;
+        for(Map.Entry<String, Integer> str: this.register.entrySet()){
+            if(reg.get(str.getKey()) != null){
+                if(reg.get(str.getKey()) != str.getValue()){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
