@@ -26,6 +26,21 @@ import java.util.Scanner;
  *   containsIn(mapOf("a" to "z"), mapOf("a" to "z", "b" to "sweet")) -> true
  *   containsIn(mapOf("a" to "z"), mapOf("a" to "zee", "b" to "sweet")) -> false
  */
+
+/**
+ * Простая (2 балла)
+ *
+ * Удалить из изменяемого ассоциативного массива все записи,
+ * которые встречаются в заданном ассоциативном массиве.
+ * Записи считать одинаковыми, если и ключи, и значения совпадают.
+ *
+ * ВАЖНО: необходимо изменить переданный в качестве аргумента
+ *        изменяемый ассоциативный массив
+ *
+ * Например:
+ *   subtractOf(a = mutableMapOf("a" to "z"), mapOf("a" to "z"))
+ *     -> a changes to mutableMapOf() aka becomes empty
+ */
 public class ClassRegister implements Printable {
    Map<String, Integer> register;
 
@@ -56,6 +71,15 @@ public class ClassRegister implements Printable {
        System.out.println("Your register contains:");
         for(Map.Entry<String, Integer> str: this.register.entrySet()){
             System.out.printf("\nName: %s Mark: %d", str.getKey(), str.getValue());
+        }
+    }
+
+    public void removeRecords(ClassRegister otherMap){
+        for(Map.Entry<String, Integer> str: otherMap.register.entrySet()){
+            //V remove(Object k): удаляет объект с ключом k
+            if(this.register.containsKey(str.getKey()) && this.register.get(str.getKey()) == str.getValue()){
+                  this.register.remove(str.getKey());
+            }
         }
     }
 
