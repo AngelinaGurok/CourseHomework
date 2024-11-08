@@ -68,7 +68,7 @@ public class ClassRegister implements Printable {
 
     @Override
     public void print() {
-       System.out.println("Your register contains:");
+       System.out.println("\nYour register contains:");
         for(Map.Entry<String, Integer> str: this.register.entrySet()){
             System.out.printf("\nName: %s Mark: %d", str.getKey(), str.getValue());
         }
@@ -84,7 +84,18 @@ public class ClassRegister implements Printable {
     }
 
     public boolean containsMap(ClassRegister otherMap){
-       return this.register.equals(otherMap);
+
+    }
+
+    public boolean containsMap(ClassRegister otherMap){
+        for(Map.Entry<String, Integer> str: this.register.entrySet()){
+            if(otherMap.register.get(str.getKey()) != null){
+                if(otherMap.register.get(str.getKey()) != str.getValue()){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 
@@ -116,22 +127,5 @@ public class ClassRegister implements Printable {
         for(Map.Entry<Integer, String> str: reversedRegister.entrySet()){
             System.out.printf("\n\nMark: %d Names: %s", str.getKey(), str.getValue());
         }
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-
-        Map<String, Integer> reg = (Map<String, Integer>) obj;
-        for(Map.Entry<String, Integer> str: this.register.entrySet()){
-            if(reg.get(str.getKey()) != null){
-                if(reg.get(str.getKey()) != str.getValue()){
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 }
