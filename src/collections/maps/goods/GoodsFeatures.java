@@ -12,6 +12,10 @@ public class GoodsFeatures {
         this.price = price;
     }
 
+    public GoodsFeatures(String category){
+        this.category = category;
+    }
+
     double getPrice(){
         return price;
     }
@@ -25,7 +29,7 @@ public class GoodsFeatures {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GoodsFeatures that = (GoodsFeatures) o;
-        return Double.compare(that.price, price) == 0 && Objects.equals(category, that.category);
+        return Objects.equals(category, that.category);
     }
 
     @Override

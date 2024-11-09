@@ -7,6 +7,8 @@
     <list default="true" id="59d29155-6186-4ecf-9d46-7009413eef48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collections/maps/goods/GoodsFeatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collections/maps/goods/GoodsFeatures.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collections/maps/goods/GoodsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collections/maps/goods/GoodsList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +56,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>14</line>
+          <line>16</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
