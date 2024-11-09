@@ -7,12 +7,16 @@ public class Main {
     public static void main(String[] args) {
         ClassRegister register = new ClassRegister();
         ClassRegister otherRegister = new ClassRegister();
-        register.fulfillRegister(3);
-        otherRegister.fulfillRegister(3);
+        register.fulfillRegister(4);
+        otherRegister.fulfillRegister(2);
         register.print();
         otherRegister.print();
+        /*
         if(register.containsMap(otherRegister)){
             System.out.println("\nContains");
-        } else System.out.println("\nDoesn't contain");
+        } else System.out.println("\nDoesn't contain");*/
+
+        register.removeRecords(otherRegister);
+        register.print();
     }
 }

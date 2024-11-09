@@ -84,18 +84,7 @@ public class ClassRegister implements Printable {
     }
 
     public boolean containsMap(ClassRegister otherMap){
-
-    }
-
-    public boolean containsMap(ClassRegister otherMap){
-        for(Map.Entry<String, Integer> str: this.register.entrySet()){
-            if(otherMap.register.get(str.getKey()) != null){
-                if(otherMap.register.get(str.getKey()) != str.getValue()){
-                    return false;
-                }
-            }
-        }
-        return true;
+        return this.register.equals(otherMap.register);
     }
 
 
@@ -105,18 +94,11 @@ public class ClassRegister implements Printable {
        for(Map.Entry<String, Integer> str: this.register.entrySet()){
 
            Integer key = str.getValue();
-           //ArrayList<String> names;
            String names = "";
            names = names.concat(str.getKey());
            if(reversedRegister.containsKey(key)){
-
-               //names = new ArrayList<>(reversedRegister.get(key));
                names = String.join(";", names, reversedRegister.get(key));
-           } else {
-               //names = new ArrayList<>();
            }
-
-           //names.add(str.getKey());
            reversedRegister.put(key, names);
        }
        return  reversedRegister;
