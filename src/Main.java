@@ -3,6 +3,7 @@ import collections.array_lists.center.Center;
 import collections.maps.ClassRegister;
 import collections.maps.goods.GoodsFeatures;
 import collections.maps.goods.GoodsList;
+import collections.maps.phone_book.PhoneBook;
 import leetcode_35.Solution;
 
 public class Main {
@@ -21,7 +22,7 @@ public class Main {
         register.removeRecords(otherRegister);
         register.print();*/
 
-        GoodsList goods = new GoodsList();
+        /*GoodsList goods = new GoodsList();
         goods.fulfillGoodsInfo("Oreo", "cookies", 20.00);
         goods.fulfillGoodsInfo("Maria", "cookies", 20.00);
         goods.fulfillGoodsInfo("Milk", "milk", 10.00);
@@ -30,6 +31,26 @@ public class Main {
         String cheapestInCategory = GoodsList.findCheapest(goods.getGoods(), "meat");
         if(cheapestInCategory != null){
             System.out.printf("\nThe cheapest good in category is: %s\n", cheapestInCategory);
-        } else System.out.println("There is no goods in such category");
+        } else System.out.println("There is no goods in such category");*/
+
+        PhoneBook phoneBook = new PhoneBook();
+        PhoneBook otherPhBook = new PhoneBook();
+        phoneBook.addRecord("Ann", "1234");
+        phoneBook.addRecord("Dick", "3421");
+        phoneBook.addRecord("Nick", "1111");
+        phoneBook.addRecord("Emergency", "911");
+        System.out.println("\nThe first phone book");
+        phoneBook.print();
+
+        otherPhBook.addRecord("Ann", "1234");
+        otherPhBook.addRecord("Dick", "5555");
+        otherPhBook.addRecord("Emergency", "112");
+        otherPhBook.addRecord("Mike", "4343");
+        System.out.println("\n\nThe second phone book");
+        otherPhBook.print();
+
+        phoneBook.mergePhoneBooks(otherPhBook);
+        System.out.println("\n\nMerged phone book");
+        phoneBook.print();
     }
 }
