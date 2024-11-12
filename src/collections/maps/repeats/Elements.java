@@ -20,5 +20,8 @@ public class Elements <T>{
         list = new ArrayList<>();
     }
 
+    void fulfillList(T element){
+        this.list.add(element);
+    }
 
 }
