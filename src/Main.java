@@ -6,6 +6,8 @@ import collections.maps.goods.GoodsList;
 import collections.maps.phone_book.PhoneBook;
 import leetcode_35.Solution;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         /*ClassRegister register = new ClassRegister();
@@ -52,5 +54,6 @@ public class Main {
         phoneBook.mergePhoneBooks(otherPhBook);
         System.out.println("\n\nMerged phone book");
         phoneBook.print();
+
     }
 }
