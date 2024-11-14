@@ -1,6 +1,9 @@
 package collections.maps.repeats;
 
-import java.util.ArrayList;
+import java.util.*;
+
+import static java.util.Collections.sort;
+
 /**
  * Средняя (4 балла)
  *
@@ -13,8 +16,8 @@ import java.util.ArrayList;
  * Например:
  *   extractRepeats(listOf("a", "b", "a")) -> mapOf("a" to 2)
  */
-public class Elements <T>{
-    ArrayList<T> list;
+public class Elements <T>  {
+    List<T> list;
 
     Elements(){
         list = new ArrayList<>();
@@ -24,4 +27,5 @@ public class Elements <T>{
         this.list.add(element);
     }
 
+    
 }
