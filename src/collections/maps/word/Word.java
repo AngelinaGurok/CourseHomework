@@ -14,19 +14,19 @@ import java.util.Map;
  */
 public class Word {
     String word;
-    char[] letters;
 
-    Word(String word){
+    public Word(String word) {
         this.word = word;
-        int start = 0;
-        int end = word.length();
-        letters = new char[end - start];
-        word.getChars(start, end, letters, 0);
     }
 
-    void deleteRepeatedChars(){
-        
+    public boolean canBuildFrom(char [] letters){
+        char[] wordChars = word.toCharArray();
+        String strFromLetters = new String(letters);
+        for(int i = 0; i < wordChars.length; i++){
+            if(strFromLetters.indexOf(wordChars[i]) == -1){
+                return false;
+            }
+        }
+        return true;
     }
-
-    boolean canBuildFrom()
 }

@@ -4,6 +4,7 @@ import collections.maps.ClassRegister;
 import collections.maps.goods.GoodsFeatures;
 import collections.maps.goods.GoodsList;
 import collections.maps.phone_book.PhoneBook;
+import collections.maps.word.Word;
 import leetcode_35.Solution;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class Main {
             System.out.printf("\nThe cheapest good in category is: %s\n", cheapestInCategory);
         } else System.out.println("There is no goods in such category");*/
 
-        PhoneBook phoneBook = new PhoneBook();
+        /*PhoneBook phoneBook = new PhoneBook();
         PhoneBook otherPhBook = new PhoneBook();
         phoneBook.addRecord("Ann", "1234");
         phoneBook.addRecord("Dick", "3421");
@@ -53,7 +54,12 @@ public class Main {
 
         phoneBook.mergePhoneBooks(otherPhBook);
         System.out.println("\n\nMerged phone book");
-        phoneBook.print();
+        phoneBook.print();*/
 
+        Word word = new Word("baobab");
+        char[] letters = new char[] {'b', 'a', 'o', 't'};
+        if(word.canBuildFrom(letters)){
+            System.out.println("Can be build from those letters");
+        } else System.out.println("Can't be build");
     }
 }
