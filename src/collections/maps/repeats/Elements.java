@@ -16,16 +16,11 @@ import static java.util.Collections.sort;
  * Например:
  *   extractRepeats(listOf("a", "b", "a")) -> mapOf("a" to 2)
  */
-public class Elements <T>  {
-    List<T> list;
+public class Elements {
+    char[] letters;
 
-    Elements(){
-        list = new ArrayList<>();
+    Elements(int size){
+        letters = new char[size];
     }
-
-    void fulfillList(T element){
-        this.list.add(element);
-    }
-
     
 }
