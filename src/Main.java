@@ -4,6 +4,7 @@ import collections.maps.ClassRegister;
 import collections.maps.goods.GoodsFeatures;
 import collections.maps.goods.GoodsList;
 import collections.maps.phone_book.PhoneBook;
+import collections.maps.repeats.Elements;
 import collections.maps.word.Word;
 import leetcode_35.Solution;
 
@@ -56,10 +57,23 @@ public class Main {
         System.out.println("\n\nMerged phone book");
         phoneBook.print();*/
 
-        Word word = new Word("baobab");
+        /*Word word = new Word("baobab");
         char[] letters = new char[] {'b', 'a', 'o', 't'};
         if(word.canBuildFrom(letters)){
             System.out.println("Can be build from those letters");
-        } else System.out.println("Can't be build");
+        } else System.out.println("Can't be build");*/
+
+        Elements<Character> elements = new Elements<>();
+        elements.addElement('a');
+        elements.addElement('b');
+        elements.addElement('a');
+        elements.addElement('o');
+        elements.addElement('t');
+        elements.addElement('t');
+        elements.addElement('a');
+        elements.extractRepeats();
+
     }
+
+
 }
