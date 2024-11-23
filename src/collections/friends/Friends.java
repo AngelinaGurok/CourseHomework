@@ -1,5 +1,7 @@
 package collections.friends;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,9 +41,13 @@ import java.util.Map;
  *        )
  */
 public class Friends {
-    Map<String, String> friends;
+    Map<String, ArrayList<String>> friends;
 
     public Friends(){
         friends = new HashMap<>();
+    }
+
+    public void addFriend(String name, ArrayList<String> familiars){
+        friends.put(name, familiars);
     }
 }
