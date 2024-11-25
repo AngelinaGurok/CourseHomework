@@ -6,6 +6,9 @@ package collections.array_lists.number_systems;
  * из системы счисления с основанием base в десятичную.
  * Например: digits = (1, 3, 12), base = 14 -> 250
  */
+
+import java.util.ArrayList;
+
 /**
  * Сложная (4 балла)
  *
@@ -26,5 +29,13 @@ public class NumberSystems {
         this.number = new String(number);
         this.base = base;
     }
-    
+
+    ArrayList<Character> splitNumberToDigits(){
+        ArrayList<Character> digits = new ArrayList<>();
+        for(int i = this.number.length() - 1; i >= 0; i--){
+            digits.add(this.number.charAt(i));
+        }
+        return digits;
+    }
+
 }
