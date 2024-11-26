@@ -8,6 +8,7 @@ package collections.array_lists.number_systems;
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Сложная (4 балла)
@@ -24,10 +25,23 @@ import java.util.ArrayList;
 public class NumberSystems {
     String number;
     int base;
+    HashMap<Character, Integer> digits;
 
     public NumberSystems(String number, int base){
         this.number = new String(number);
         this.base = base;
+        digits = new HashMap<>();
+        for(int i = 0; i < 10; i++){
+            char key = (char) ('0'+ i);
+            digits.put(key, i);
+        }
+        if(base > 10){
+            char key = 'a';
+            for(int i = base - 10; i < base; i++){
+                digits.put(key, i);
+                key++;
+            }
+        }
     }
 
     ArrayList<Character> splitNumberToDigits(){
@@ -37,5 +51,6 @@ public class NumberSystems {
         }
         return digits;
     }
+
 
 }
