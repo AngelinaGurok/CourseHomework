@@ -1,3 +1,4 @@
+import collections.array_lists.number_systems.NumberSystems;
 import collections.array_lists.polynomial.Polynomial;
 import collections.array_lists.center.Center;
 import collections.maps.ClassRegister;
@@ -63,7 +64,7 @@ public class Main {
             System.out.println("Can be build from those letters");
         } else System.out.println("Can't be build");*/
 
-        Elements<Character> elements = new Elements<>();
+        /*Elements<Character> elements = new Elements<>();
         elements.addElement('a');
         elements.addElement('b');
         elements.addElement('a');
@@ -71,8 +72,19 @@ public class Main {
         elements.addElement('t');
         elements.addElement('t');
         elements.addElement('a');
-        elements.extractRepeats();
+        elements.extractRepeats();*/
 
+        NumberSystems fromHexToDec = new NumberSystems("13c", 14);
+        int result  = fromHexToDec.toDecimal();
+        int base = fromHexToDec.getBase();
+        String number = new String(fromHexToDec.getNumber());
+        System.out.printf("\nЧисло %s в  системе счисления с основанием %d: %d", number, base, result);
+
+        NumberSystems fromBinToDec = new NumberSystems("101101", 2);
+        result  = fromBinToDec.toDecimal();
+        base = fromBinToDec.getBase();
+        number = new String(fromBinToDec.getNumber());
+        System.out.printf("\nЧисло %s в  системе счисления с основанием %d: %d", number, base, result);
     }
 
 

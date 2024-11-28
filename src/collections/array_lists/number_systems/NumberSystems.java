@@ -25,23 +25,31 @@ import java.util.HashMap;
 public class NumberSystems {
     String number;
     int base;
-    HashMap<Character, Integer> digits;
+    HashMap<Character, Integer> systemDigits;
 
     public NumberSystems(String number, int base){
         this.number = new String(number);
         this.base = base;
-        digits = new HashMap<>();
+        systemDigits = new HashMap<>();
         for(int i = 0; i < 10; i++){
             char key = (char) ('0'+ i);
-            digits.put(key, i);
+            systemDigits.put(key, i);
         }
         if(base > 10){
             char key = 'a';
-            for(int i = base - 10; i < base; i++){
-                digits.put(key, i);
+            for(int i = 10; i < base; i++){
+                systemDigits.put(key, i);
                 key++;
             }
         }
+    }
+
+    public int getBase() {
+        return base;
+    }
+
+    public String getNumber() {
+        return number;
     }
 
     ArrayList<Character> splitNumberToDigits(){
@@ -52,5 +60,14 @@ public class NumberSystems {
         return digits;
     }
 
-
+    public int toDecimal(){
+        int result = 0;
+        ArrayList<Character> numberDigits = splitNumberToDigits();
+        for(int i = 0; i < numberDigits.size(); i++){
+            char key = numberDigits.get(i);
+            int value = this.systemDigits.get(key);
+            result = (int) (result + value * Math.pow(this.base, i));
+        }
+        return result;
+    }
 }
