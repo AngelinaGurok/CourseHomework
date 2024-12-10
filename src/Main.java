@@ -74,7 +74,7 @@ public class Main {
         elements.addElement('a');
         elements.extractRepeats();*/
 
-        NumberSystems fromHexToDec = new NumberSystems("13c", 14);
+        NumberSystems fromHexToDec = new NumberSystems("13c", 16);
         int result  = fromHexToDec.toDecimal();
         int base = fromHexToDec.getBase();
         String number = new String(fromHexToDec.getNumber());

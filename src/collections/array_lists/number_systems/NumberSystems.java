@@ -1,11 +1,4 @@
 package collections.array_lists.number_systems;
-/**
- * Средняя (3 балла)
- *
- * Перевести число, представленное списком цифр digits от старшей к младшей,
- * из системы счисления с основанием base в десятичную.
- * Например: digits = (1, 3, 12), base = 14 -> 250
- */
 
 import java.util.ArrayList;
 import java.util.HashMap;
