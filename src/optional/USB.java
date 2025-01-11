@@ -4,14 +4,18 @@ public class USB {
     String version;
 
     USB(){
-        version = "Unknown";
+        version = null;
     }
 
-    USB(String version){
+    USB(String version) {
         this.version = version;
     }
 
     public String getVersion() {
         return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 }

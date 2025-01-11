@@ -1,17 +1,28 @@
 package optional;
 
+import java.util.Optional;
+
 public class Soundcard {
-    USB usb;
+    private Optional<USB> usb;
 
+
+    Soundcard(USB usb){
+       this.usb = Optional.of(usb);
+    }
     Soundcard(){
-        usb = null;
+        this.usb = Optional.of(new USB());
     }
 
-    Soundcard(String version){
-        usb = new USB(version);
-    }
-
-    public USB getUsb() {
+    public Optional<USB> getUSB() {
         return usb;
+    }
+
+    @Override
+    public String toString() {
+        return usb.get().getVersion();
+    }
+
+    public void setUSB(Optional<USB> usb) {
+        this.usb = usb;
     }
 }
