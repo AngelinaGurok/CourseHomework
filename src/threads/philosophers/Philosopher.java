@@ -2,31 +2,38 @@ package threads.philosophers;
 
 import java.util.concurrent.Semaphore;
 
+class IngestionCounter{
+    int counter;
+    IngestionCounter(){
+        counter = 0;
+    }
+}
 public class Philosopher extends Thread {
-    Semaphore freePlace;
+    IngestionCounter ingestions;
     int num = 0;
     int id;
 
-    Philosopher(Semaphore place, int id){
-        this.freePlace = place;
+    Philosopher(IngestionCounter ingestions, int id){
+        this.ingestions = ingestions;
         this.id = id;
     }
 
     public void run(){
-        try {
-            while (num < 3){
-                freePlace.acquire();
-                System.out.println("Философ " + id + " садится за стол");
-                sleep(500);
-                num++;
+        synchronized (ingestions) {
+            try {
+                while (num < 3) {
+                    System.out.println("Философ " + id + " садится за стол");
+                    sleep(500);
+                    num++;
 
-                System.out.println ("Философ " + id+" выходит из-за стола");
-                freePlace.release();
-                sleep(500);
+                    System.out.println("Философ " + id + " выходит из-за стола");
+                    ingestions.counter++;
+                    System.out.printf("\nПриемов пищи за столом совершено: %d\n", ingestions.counter);
+                    sleep(500);
+                }
+            } catch (InterruptedException e) {
+                System.out.printf("У философa %d проблемы со здоровьем", id);
             }
-        }
-        catch (InterruptedException e){
-            System.out.printf("У философa %d проблемы со здоровьем", id );
         }
     }
 }

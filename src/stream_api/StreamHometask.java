@@ -13,7 +13,7 @@ public class StreamHometask {
         phones.add(new Phone("Samsung 9", 45.4, new Date(31, 12,2024)));
 
         phones.stream()
-                .filter(ph -> ph.getPrice() > 30)
+                .filter(ph -> ph.getPrice() > 20)
                 .sorted(new PhonePriceComparator().thenComparing(new PhoneDateComparator()))
                 .forEach(System.out::println);
     }

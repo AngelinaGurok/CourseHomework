@@ -4,8 +4,8 @@ import java.util.concurrent.Semaphore;
 
 public class Solution {
     public static void main(String[] args) {
-        Semaphore sem = new Semaphore(3);
-        for(int i=1;i<6;i++)
-            new Philosopher(sem,i).start();
+        IngestionCounter ingestionCounter = new IngestionCounter();
+        for(int i=1;i<10;i++)
+            new Philosopher(ingestionCounter,i).start();
     }
 }
