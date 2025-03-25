@@ -4,8 +4,35 @@ import java.util.concurrent.Semaphore;
 
 class IngestionCounter{
     int counter;
+    int freePlace;
     IngestionCounter(){
         counter = 0;
+        freePlace = 3;
+    }
+
+    public synchronized void sit(){
+        while(freePlace < 1){
+            try {
+                wait();
+            } catch (InterruptedException e){
+            }
+        }
+        this.counter++;
+        this.freePlace--;
+        notifyAll();
+    }
+
+    public synchronized void free(){
+        while (freePlace >= 1){
+            try {
+                wait();
+            } catch (InterruptedException e){
+
+            }
+
+        }
+        this.freePlace = this.freePlace + 1;
+        notifyAll();
     }
 }
 public class Philosopher extends Thread {
@@ -19,16 +46,16 @@ public class Philosopher extends Thread {
     }
 
     public void run(){
-        synchronized (ingestions) {
+        {
             try {
                 while (num < 3) {
+                    ingestions.sit();
                     System.out.println("Философ " + id + " садится за стол");
-                    sleep(500);
                     num++;
+                    sleep(500);
 
                     System.out.println("Философ " + id + " выходит из-за стола");
-                    ingestions.counter++;
-                    System.out.printf("\nПриемов пищи за столом совершено: %d\n", ingestions.counter);
+                    ingestions.free();
                     sleep(500);
                 }
             } catch (InterruptedException e) {
